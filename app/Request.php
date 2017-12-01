@@ -9,6 +9,7 @@ class Request
     static protected $post;
     static protected $get;
     static protected $all;
+    static protected $type;
 
     static public function init()
     {
@@ -16,6 +17,11 @@ class Request
         static::$post = $_POST;
         static::$get = $_GET;
         static::$all = $_POST + $_GET;
+        if(static::has('_method')) {
+            static::$type = static::get('_method');
+        } else {
+            static::$type  = $_SERVER['REQUEST_METHOD'];
+        }
     }
 
     static public function has($key)
@@ -32,12 +38,12 @@ class Request
         if(static::has($key)) {
             return static::$all[$key];
         } else {
-            throw new Exception('No such index');
+            throw new \Exception('No such index');
         }
     }
 
     static public function all() {
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if(static::$type == 'POST' || static::$type == 'PATCH') {
             return static::$post;
         } else {
             return static::$get;
@@ -47,6 +53,11 @@ class Request
     static public function uri()
     {
         return static::$uri;
+    }
+
+    static public function type()
+    {
+        return static::$type;
     }
 
 }
