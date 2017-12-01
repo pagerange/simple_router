@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Sample controller for testing SimpleRouter
+ */
+
 namespace App\Controllers;
 
 use \App\View;
