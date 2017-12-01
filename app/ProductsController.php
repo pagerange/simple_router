@@ -4,7 +4,7 @@
  * Sample controller for testing SimpleRouter
  */
 
-namespace App\Controllers;
+namespace App;
 
 use \App\View;
 use \App\Request;
