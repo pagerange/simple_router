@@ -18,8 +18,8 @@ use \App\SimpleRouter as Route;
 
 ## Changelog
 
-2017-11-30 - Added get routes
-2017-12-01 - Added post, patch, delete routes
+* 2017-11-30 - Added get routes
+* 2017-12-01 - Added post, patch, delete routes
 
 
 
