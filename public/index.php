@@ -6,8 +6,9 @@ require (__DIR__ . '/../app/lib/functions.php');
 
 use App\SimpleRouter;
 use App\Request;
-SimpleRouter::init();
 Request::init();
+SimpleRouter::init(Request::type());
+
 
 /**
  * To Test: visit thie page with a request:

@@ -16,6 +16,10 @@ use \App\SimpleRouter as Route;
 
  ```
 
-* Must handle RESTful methods: GET, POST, PATCH, DELETE
+## Changelog
+
+2017-11-30 - Added get routes
+2017-12-01 - Added post, patch, delete routes
+
 
 

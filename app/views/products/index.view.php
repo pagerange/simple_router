@@ -9,7 +9,7 @@
 
     <h1><?=$title?></h1>
 
-    <p>Template: show.view.php</p>
+    <p>Template: index.view.php</p>
 
 </body>
 </html>
