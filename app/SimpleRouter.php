@@ -217,6 +217,7 @@ class SimpleRouter
                     // build the parameter array
                     foreach($route['vars'] as $index => $var) {
                         $params[$index] = $matches[$var];
+
                     }
                     // call the method associated with the route
                     // and pass it the params

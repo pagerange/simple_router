@@ -1,0 +1,24 @@
+Searching 22 files for "var_dump"
+
+/Volumes/htdocs/simple_router/app/ProductsController.php:
+   31      {
+   32          $title = ucwords(str_replace('-', ' ', $product));
+   33:         var_dump($product);
+   34          return View::show('products/show', compact('title'));
+   35      }
+
+/Volumes/htdocs/simple_router/app/SimpleRouter.php:
+  168                      $vars[$index] = $i + 1;
+  169                      echo 'vars: ';
+  170:                     var_dump($vars);
+  171                      $reg .= '(.+)'; 
+  172                  }
+
+/Volumes/htdocs/simple_router/public/index.php:
+   10  
+   11  Route::get('/', function(){
+   12:      var_dump('HOME PAGE ROUTE');
+   13  });
+   14  
+
+3 matches across 3 files
