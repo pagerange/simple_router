@@ -182,6 +182,7 @@ class SimpleRouter
             // Set the regex for a specific route
             static::$$regex[$route]['regex'] = $reg;
 
+
             // Set the expected params for a sepcific route
             static::$$regex[$route]['vars'] = $vars;
 

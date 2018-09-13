@@ -34,6 +34,28 @@ class ProductsController
     }
 
     /**
+     * Standard detail view of one prooduct
+     * @param  [String] $product [product slug]
+     * @return [View]          [show view]
+     */
+    static public function category($category, $product)
+    {
+        $title = ucwords(str_replace('-', ' ', $category . ' ' . $product));
+        return View::show('products/show', compact('title'));
+    }
+
+    /**
+     * Standard detail view of one prooduct
+     * @param  [String] $product [product slug]
+     * @return [View]          [show view]
+     */
+    static public function location($store, $category, $product)
+    {
+        $title = ucwords(str_replace('-', ' ', $store . ' ' . $category . ' ' . $product));
+        return View::show('products/show', compact('title'));
+    }
+
+    /**
      * Standard edit form of existing product
      * @param  [String] $product [slug]
      * @return [View]  [edit view]

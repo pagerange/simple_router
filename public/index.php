@@ -26,13 +26,21 @@ Route::get('products/{product}/edit', function($product) {
     \App\ProductsController::edit($product);
  });
 
+// Route filter is like a net... big routes get caught before little routes
+
+Route::get('products/{store}/{category}/{product}/show', function($store, $category, $product) {
+    \App\ProductsController::location($store, $category, $product);
+});
+
+Route::get('products/{category}/{product}/show', function($category, $product) {
+    \App\ProductsController::category($category, $product);
+});
+
 Route::get('products/{product}/show', function($product) {
     \App\ProductsController::show($product);
 });
 
-Route::get('products/{product}/{category}/show', function($product, $category) {
-    \App\ProductsController::category($product, $category);
-});
+
 
 // POST routes
 
@@ -58,9 +66,7 @@ Route::delete('products', function() {
 /* INITIALIZE REQUEST AND ROUTER
 ----------------------------------------------------------- */
 
-echo '<pre>';
-
 Request::init();
-Route::init(Request::type());
+Route::init( Request::type() );
 Route::dispatch( Request::uri() );
 
