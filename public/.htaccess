@@ -1,0 +1,16 @@
+# Only if mod_rewrite is enabled
+<IfModule mod_rewrite.c>
+    # turn the rewrite engine on
+    RewriteEngine On
+    # base everything on the root document folder
+    RewriteBase /
+    # if the request is for index.php, don't run any more rules
+    RewriteRule ^index\.php$ - [L]
+    # if the request if for an existing file, load it
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # if the request is for an existing directory, load it
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # Otherwise, redirect all requests to index.php
+    # And don't run any more rules
+    RewriteRule . /index.php [L]
+</IfModule>
