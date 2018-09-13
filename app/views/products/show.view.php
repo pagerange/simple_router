@@ -9,7 +9,8 @@
 
     <h1><?=$title?></h1>
 
-    <p>Template: show.view.php</p>
+     <p>Template: <?=basename(__FILE__)?></p>
+
 
 </body>
 </html>

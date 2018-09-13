@@ -9,7 +9,7 @@
 
     <h1><?=$title?></h1>
 
-    <p>Template: create.view.php</p>
+     <p>Template: <?=basename(__FILE__)?></p>
 
     <form action="/products" method="post">
         <p><label for="name">Name:</label><br />

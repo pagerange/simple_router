@@ -1,9 +1,12 @@
 <?php
 
+ob_start();
+session_start();
+
 require __DIR__ . '/../vendor/autoload.php';
 
 use App\SimpleRouter as Route;
-use App\Request;
+
 
 /* DEFINE THE ROUTES WITH CLOSURES
 ----------------------------------------------------------- */
@@ -26,7 +29,9 @@ Route::get('products/{product}/edit', function($product) {
     \App\ProductsController::edit($product);
  });
 
-// Route filter is like a net... big routes get caught before little routes
+
+// Route filter is like a series of nested seives 
+// Catch big routes before short routes with the same patterns
 
 Route::get('products/{store}/{category}/{product}/show', function($store, $category, $product) {
     \App\ProductsController::location($store, $category, $product);
@@ -63,10 +68,13 @@ Route::delete('products', function() {
 });
 
 
-/* INITIALIZE REQUEST AND ROUTER
+/*  ROUTER
 ----------------------------------------------------------- */
 
-Request::init();
-Route::init( Request::type() );
-Route::dispatch( Request::uri() );
+// Request::init();
+Route::init( $_SERVER['REQUEST_METHOD'] );
+Route::dispatch( $_SERVER['REQUEST_URI'] );
 
+
+// flush buffer
+ob_flush();

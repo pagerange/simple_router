@@ -7,7 +7,6 @@
 namespace App;
 
 use \App\View;
-use \App\Request;
 
 class ProductsController
 {
@@ -40,8 +39,9 @@ class ProductsController
      */
     static public function category($category, $product)
     {
-        $title = ucwords(str_replace('-', ' ', $category . ' ' . $product));
-        return View::show('products/show', compact('title'));
+        $title = 'Category: ' . $category;
+        $subtitle = 'Product: ' . $product;
+        return View::show('products/category', compact('title', 'subtitle'));
     }
 
     /**
@@ -51,8 +51,10 @@ class ProductsController
      */
     static public function location($store, $category, $product)
     {
-        $title = ucwords(str_replace('-', ' ', $store . ' ' . $category . ' ' . $product));
-        return View::show('products/show', compact('title'));
+        $title = 'Location: ' . $store;
+        $subtitle = 'Category: ' . $category;
+        $subsubtitle = 'Product: ' . $product;
+        return View::show('products/location', compact('title', 'subtitle', 'subsubtitle'));
     }
 
     /**
@@ -102,7 +104,7 @@ class ProductsController
      */
     static public function destroy()
     {
-       $title = 'Product successfully deleted: ' . Request::get('id');
+       $title = 'Product successfully deleted';
        return View::show('products/index', compact('title'));
     }
 

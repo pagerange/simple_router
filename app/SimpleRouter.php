@@ -6,7 +6,7 @@
  * callables
  * @author steve@pagerange.com <Steve George>
  * @created_at 2017-11-30
- * @updated_at 2017-12-01
+ * @updated_at 2018-09-13
  */
 
 namespace App;
@@ -71,7 +71,7 @@ class SimpleRouter
      * regex patterns for all routes
      * @return Void
      */
-    static public function init($type)
+    static public function init($type) :void
     {
         static::$type = $type;
         static::setRegex($type);
@@ -83,7 +83,7 @@ class SimpleRouter
      * @param  [Callable] $callback Callable function or method
      * @return Void
      */
-    static public function get($route, $callback)
+    static public function get(String $route, Callable $callback) :void
     {
         static::$GET_routes[$route] = $callback;
     }
@@ -94,7 +94,7 @@ class SimpleRouter
      * @param  [Callable] $callback Callable function or method
      * @return Void
      */
-     static public function patch($route, $callback)
+     static public function patch(String $route, Callable $callback) :void
     {
         static::$PATCH_routes[$route] = $callback;
     }
@@ -105,7 +105,7 @@ class SimpleRouter
      * @param  [Callable] $callback Callable function or method
      * @return Void
      */
-     static public function post($route, $callback)
+     static public function post(String $route, Callable $callback) :void
     {
         static::$POST_routes[$route] = $callback;
     }
@@ -116,7 +116,7 @@ class SimpleRouter
      * @param  [Callable] $callback Callable function or method
      * @return Void
      */
-     static public function delete($route, $callback)
+     static public function delete(String $route, Callable $callback) :void
     {
         static::$DELETE_routes[$route] = $callback;
     }
@@ -126,7 +126,7 @@ class SimpleRouter
      * Set regex pattern for each route and
      * store in the class's regex property
      */
-    static public function setRegex()
+    static public function setRegex() :void
     {
         $type = static::$type;
         $regex = "{$type}_regex";
@@ -195,7 +195,8 @@ class SimpleRouter
      * @param  [String] $request [Pulled from $_SERVER['REQUEST_URI']]
      * @return [Callable]  The method or function associated with a route
      */
-    static public function dispatch($request) {
+    static public function dispatch($request)
+    {
         $type = static::$type;
         $regex = "{$type}_regex";
         $routes = "{$type}_routes";
@@ -237,5 +238,6 @@ class SimpleRouter
     {
         return self::$GET_regex;
     }
+
 
 }

@@ -17,7 +17,8 @@
 
     <h1><?=$title?></h1>
 
-    <p>Template: edit.view.php</p>
+     <p>Template: <?=basename(__FILE__)?></p>
+
 
     <form action="/products" method="post">
         <input type="hidden" name="_method" value="PATCH" />

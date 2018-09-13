@@ -9,8 +9,11 @@
 
     <h1><?=$title?></h1>
 
-     <p>Template: <?=basename(__FILE__)?></p>
+    <h2><?=$subtitle?></h2>
 
+    <h3><?=$subsubtitle?></h3>
+
+    <p>Template: <?=basename(__FILE__)?></p>
 
 </body>
 </html>
